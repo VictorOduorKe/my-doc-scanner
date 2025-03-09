@@ -11,6 +11,14 @@
 --font-size-16:16px;
 --font-size-18:18px;
 --font-size-20:20px;
+--color-btn-green:#00FF9C;
+--color-btn-bg-green:#00FF9C;
+--color-btn-red:#F93827;
+--color-btn-bg-red:#F93827;
+--color-green:var(--color-btn-green);
+--color-bg-green:var(--color-btn-bg-green);
+--color-red:var(--color-btn-red);
+--color-bg-red:var(--color-btn-bg-red);
 }
 * {
     margin: 0;
@@ -46,6 +54,10 @@ input{
     outline: none;
     border: 0;
 }
+body{
+    position: relative;
+    overflow: hidden;
+}
 /*-----------Global variables----------*/
 
 
@@ -66,6 +78,8 @@ input{
 .header .menu{
     padding:10px;
     display: flex;
+    text-transform: uppercase;
+    font-size: var(--font-size-20);
 }
 .header .menu ul{
     display:flex;
@@ -132,6 +146,234 @@ textarea{
     border: 0;
    
 }
+/*---------------upload styles-----------*/
+.display .project{
+    display: flex;
+    gap: 20px;
+    border-radius: 5px;
+    align-items: center;
+    background-color: var(--color-bg-primary);
+}
+.display .project hr{
+    width: 1px;
+    height: 100px;
+}
+.project_details{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.project_details h4{
+    color: var(--color-tertiary);
+    padding:10px;
+    font-size: var(--font-size-20);
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.project_details p{
+    color: var(--color-tertiary);
+    padding:10px;
+    font-size: var(--font-size-18);
+    font-weight: 400;
+}
+.project_details .status{
+    color: var(--color-btn-red);
+    padding:10px;
+    font-size: var(--font-size-18);
+    font-weight: 400;
+}
+.project .table{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-height: 300px;
+    overflow: scroll;
+}
+.project table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.project table th{
+    background-color: var(--color-green);
+    color: var(--color-secondary);
+    padding: 10px;
+    font-size: var(--font-size-18);
+    font-weight: 400;
+}
+.project table td{
+    background-color: var(--color-bg-primary);
+    color: var(--color-tertiary);
+    padding: 10px;
+    font-size: var(--font-size-18);
+    font-weight: 400;
+}
+.project table tr:nth-child(even){
+    background-color: var(--color-bg-secondary);
+}
+.project table tr:nth-child(odd){
+    background-color: var(--color-bg-primary);
+}
+.project table tr td{
+    transition: all 0.3s ease-in-out;
+    padding: 5px;
+}
+.project table tr:hover td{
+    background:var(--color-bg-quaternary);
+}
+
+.project table button{
+    color:var(--color-tertiary);
+    cursor: pointer;
+    border-radius: 4px;
+    background:var(--color-btn-green);
+    padding:5px;
+    text-transform: uppercase;
+    outline: none;
+    border: 0;
+    font-size: var(--font-size-18);
+}
+.project table td .status,.delete-user {
+    color:var(--color-tertiary);
+    cursor: pointer;
+    border-radius: 4px;
+    background:var(--color-btn-red);
+    text-transform: uppercase;
+    outline: none;
+    border: 0;
+}
+.status-active{
+    color:var(--color-secondary);
+   background: var(--color-bg-green);
+}
+.project table td .delete-user {
+    color:var(--color-tertiary);
+    cursor: pointer;
+    border-radius: 4px;
+    background:var(--color-btn-red);
+    text-transform: uppercase;
+    outline: none;
+    border: 0;
+}
+.project table .fa-download{
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: var(--font-size-18);
+    margin: 0;
+    padding: 5px;
+}
+.project table .status:hover{
+    color:var(--color-bg-tertiary);
+    background: var(--color-red);
+    cursor: pointer;
+}
+.table {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+.user-project{
+    background-color: none;
+}
+  .card-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding:10px;
+    flex-direction: column;
+    height: 600px;
+    margin-top: 6rem; 
+    overflow: scroll;
+  }
+  .card-group::-webkit-scrollbar {
+    width: 0;
+  }
+  .card-group .card{
+    background: var(--color-bg-primary);
+    display: flex;
+    width: 100%;
+    gap:10px;
+    padding:10px;
+  }
+  .card-group .card:nth-child(odd){
+    background-color: var(--color-bg-quaternary);
+  }
+  
+  .card-group .card:hover{
+    box-shadow: var(--color-bg-green) 0 0 5px;
+  }
+  .btn-group{
+    display: flex;
+    gap:10px;
+  }
+  .btn-group button{
+    outline: none;
+    border: 0;
+  }
+  .btn-group button  i{
+    font-size: 0.9rem;
+  }
+  .user-detail{
+    display: flex;
+    gap: 10px;
+    color: var(--color-tertiary);
+    align-items: center;
+  }
+  .btn-group button{
+    padding:10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .spinner  {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 50%;
+    border-top-color: transparent; /* Creates a spinning effect */
+    animation: animateDownload 2s linear infinite;
+}
+
+ 
+  @keyframes animateDownload {
+    0%{
+       transform: rotate(0deg);
+    }100%{
+         transform: rotate(360deg);
+    }
+  }
+  .alert{
+    position: absolute;
+    top:200px;
+    right: -110px;
+    transition: all 0.3s ease-in-out;
+    padding:10px;
+    border-radius: 4px;
+  }
+  .add-alert{
+     right: 10px;
+     background: var(--color-btn-green);
+     color: var(--color-primary);
+  }
+  .loader{
+    background-color: red;
+    span:nth-child(1){
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid var(--color-bg-tertiary);
+    }
+  }
 /* media querries for responsive design */
 @media  (max-width: 508px){
     .toggle_menu{
@@ -166,4 +408,41 @@ textarea{
     right:0;
 
   }
+  .project{
+    flex-direction: column;
+    width: fit-content;
+  }
+  .display .project hr{
+    width: 100%;
+    height: 1px;
+}
+.project table tbody{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.project table thead{
+    visibility: none;
+    display: none;
+    flex-direction: column;
+}
+
+tr{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+tbody{
+    display: grid;
+    grid-row:repeat(auto-fit, minmax(250px, 1fr));
+}
+.card-group{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+}
+.card{
+    flex-direction: column;
+}
+.user-detail{
+    flex-direction: column;
+}
 }
