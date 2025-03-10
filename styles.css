@@ -374,6 +374,21 @@ textarea{
         border: 2px solid var(--color-bg-tertiary);
     }
   }
+  .message-area{
+    color:var(--color-red);
+    padding: 10px;
+    display: none;
+  }
+  .message-error{
+    display: block;
+    transition: all 0.5s ease-in-out;
+    color: var(--color-red);
+  }
+  .message-success{
+    display: block;
+    color: var(--color-green);
+    transition: all 0.5s ease-in-out;
+  }
 /* media querries for responsive design */
 @media  (max-width: 508px){
     .toggle_menu{

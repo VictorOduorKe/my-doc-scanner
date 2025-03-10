@@ -24,25 +24,27 @@
         <section id="form">
             <div class="container">
                 <h4>Register here</h4>
-                <form action="">
+                <form  id="register_form">
                     <div class="input-field">
                         <label for="username">Username</label>
-                        <input type="text" name="username" id="username" required>
+                        <input type="text" name="username" id="username" >
                     </div>
                     <div class="input-field"><label for="email">Email</label>
-                        <input type="email" name="email" id="email" required></div>
+                        <input type="email" name="email" id="email" ></div>
                     <div class="input-field">   <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
+                        <input type="password" name="password" id="password" >
                     </div>
                     <div class="nput-field">
                     <label for="confirm-password">Confirm Password</label>
-                    <input type="password" name="password" id="confirm-password" required>
+                    <input type="password" name="confirm_password" id="confirm-password" >
                     </div>
+                    <div class="message-area"></div>
                     <button type="submit">Register</button>
                 </form>
             </div>
         </section>
     </main>
     <script src="index.js"></script>
+    <script src="validateRegister.js"></script>
 </body>
 </html>
