@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <header class="header">
@@ -24,14 +24,15 @@
         <section id="form">
             <div class="container">
                 <h4>Login here</h4>
-                <form action="">
+                <form  id="login-form">
                     <div class="input-field">
                         <label for="username">Username</label>
-                        <input type="text" name="username" id="username" required>
+                        <input type="text" name="username" id="username" >
                     </div>
                     <div class="input-field">   <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
+                        <input type="password" name="password" id="password" >
                     </div>
+                    <div class="message-area"></div>
                     <button type="submit">Login</button>
                     <div class="other-field">
                         <a href="reset-password.html">Reset Paasword</a>
@@ -41,6 +42,11 @@
             </div>
         </section>
     </main>
-    <script src="index.js"></script>
+    <footer>
+        <p>Developed by:.......</p>
+        <P>&copy; 2025</P>
+      </footer>
+    <script src="js/index.js"></script>
+    <script src="js/validateLogin.js"></script>
 </body>
 </html>

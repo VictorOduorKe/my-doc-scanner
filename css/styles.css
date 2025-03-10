@@ -19,6 +19,7 @@
 --color-bg-green:var(--color-btn-bg-green);
 --color-red:var(--color-btn-red);
 --color-bg-red:var(--color-btn-bg-red);
+--color-yellow:#F6DC43;
 }
 * {
     margin: 0;
@@ -56,11 +57,17 @@ input{
 }
 body{
     position: relative;
-    overflow: hidden;
+    width: 100%;
+}
+body::-webkit-scrollbar{
+  width: 0;
+  scroll-behavior: smooth mandatory;
 }
 /*-----------Global variables----------*/
 
-
+section{
+  width: 100%;
+}
 .header {
   background: var(--color-bg-primary);
   color: var(--color-tertiary);
@@ -68,7 +75,7 @@ body{
   display: flex;
   align-items:center;
   width: 100%;
-  justify-content: flex-end;
+  justify-content:space-between;
   position: fixed;
   padding: 30px;
 }
@@ -92,6 +99,27 @@ body{
     color:var(--color-tertiary);
     font-size: var(--font-size-20);
 }
+.search{
+  border: 2px solid var(--color-btn-bg-green);
+  border-radius: 10px;
+  display: flex;
+  padding:5px;
+}
+.search input{
+  width: 100%;
+  border: 0;
+  outline: none;
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-primary);
+}
+.search i{
+  cursor: pointer;
+  background:none;
+  border-radius: 50%;
+}
+.search i:hover{
+ color:var(--color-yellow);
+}
 .container{
     display:flex;
     justify-content: center;
@@ -99,9 +127,15 @@ body{
     background-color: var(--color-bg-secondary);
     flex-direction: column;
     width: 100%;
-    height: 100svh;
+    margin-bottom: 30px;
+    margin: 150px auto;
 }
-
+.container:-webkit-scrollbar{
+  width: 0;
+}
+section:-webkit-scrollbar{
+  width: 0;
+}
 .container form{
     background:var(--color-bg-secondary);
     display: flex;
@@ -112,6 +146,9 @@ body{
     padding:10px;
     border-radius: 10px;
     border: 3px solid var(--color-tertiary);
+}
+main::-webkit-scrollbar{
+  width: 0;
 }
 .input-field{
     display: flex;
@@ -147,6 +184,13 @@ textarea{
    
 }
 /*---------------upload styles-----------*/
+.display{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 80px auto;
+}
+
 .display .project{
     display: flex;
     gap: 20px;
@@ -188,7 +232,6 @@ textarea{
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    max-height: 300px;
     overflow: scroll;
 }
 .project table{
@@ -242,6 +285,8 @@ textarea{
     text-transform: uppercase;
     outline: none;
     border: 0;
+}.project table td .fa-eye,.fa-download{
+  color: var(--color-primary);
 }
 .status-active{
     color:var(--color-secondary);
@@ -273,23 +318,19 @@ textarea{
     width: 100%;
     overflow-x: auto;
   }
-
   table {
-    width: 100%;
     border-collapse: collapse;
   }
-.user-project{
-    background-color: none;
-}
+
   .card-group {
     display: flex;
     gap: 20px;
     justify-content: center;
     padding:10px;
     flex-direction: column;
-    height: 600px;
     margin-top: 6rem; 
     overflow: scroll;
+    margin-top: 0;
   }
   .card-group::-webkit-scrollbar {
     width: 0;
@@ -332,7 +373,7 @@ textarea{
     align-items: center;
     justify-content: center;
   }
-  .spinner  {
+  .spinner{
     width: 20px;
     height: 20px;
     display: flex;
@@ -343,8 +384,33 @@ textarea{
     border-top-color: transparent; /* Creates a spinning effect */
     animation: animateDownload 2s linear infinite;
 }
-
- 
+.fa-trash{
+  color: var(--color-red);
+  transition: all .5s ease-in-out;
+}
+.delete{
+  transition: all 0.5s ease-in-out;
+}
+.fa-eye{
+  transition: all 0.5s ease-in-out;
+}
+.fa-eye:hover{
+  scale: 1.03;
+  color: var(--color-primary);
+}
+.status{
+color:var(--color-red);
+font-size: var(--font-size-18);
+padding:5px;
+text-transform: lowercase;
+}
+.delete:hover{
+  color:var(--color-red);
+  background-color: var(--color-red);
+  .fa-trash{
+    color:var(--color-btn-bg-green)
+  }
+ }
   @keyframes animateDownload {
     0%{
        transform: rotate(0deg);
@@ -389,8 +455,120 @@ textarea{
     color: var(--color-green);
     transition: all 0.5s ease-in-out;
   }
+  .upload-form{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    flex-direction: column;
+    margin-top: 90px;
+  }
+.upload-form h1{
+  margin-top: 70px;
+}
+.upload-form-area{
+  display: flex;
+  gap: 20px;
+}
+  #form-upload{
+    display: flex;
+  }
+  #form-upload input{
+    width: 100%;
+  }
+  #form-upload input[type="file"]{
+    border: 2px solid var(--color-bg-tertiary);
+    font-size: var(--font-size-20);
+  }
+  .rules-area{
+    display: flex;
+    flex-direction: column;
+  }
+  .rules-area h4{
+    font-size: var(--font-size-16);
+    font-weight: 600;
+  }
+  .rules-area h6, i{
+    font-size: var(--font-size-16);
+    padding: 10px;
+    color: var(--color-btn-bg-green);
+  }
+  .rules-area h4 i{
+    font-size: var(--font-size-12);
+    color: var(--color-red);
+    margin: 5px;
+  }
+  .Rules{
+    border: 2px solid var(--color-bg-tertiary);
+    flex-direction: column;
+  }
+  .Rules span{
+    color: var(--color-bg-tertiary);
+    text-align: center;
+  }
+  .Rules ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction:column;
+    gap: 10px;
+  }
+  .Rules ul li{
+    color: var(--color-bg-tertiary);
+  }
+  .Rules ul li:nth-child(1){
+    font-size: var(--font-size-18);
+  }
+  .Rules ul li:nth-child(1) i{
+    color:var(--color-yellow);
+  }
+  .Rules ul li:nth-child(3) i,.Rules ul li:nth-child(4) i{
+    color:var(--color-bg-tertiary);
+  }
+  .Rules ul li:nth-child(4) a{
+    font-size: var(--font-size-16);
+    color: #00FF9C;
+    text-decoration: none;
+    padding:5px;
+  }
+  .upload-form1{
+    box-shadow: var(--color-yellow);
+    display: flex;
+    flex-direction: column;
+  }
+  #form{
+    background-color: var(--color-bg-secondary);
+    flex-direction: column;
+  }
+  .upload-form1 h1{
+    color:red;
+  }
+
+  main{
+    background-color: var(--color-bg-secondary);
+    overflow: scroll;
+  }
+
+  footer{
+    background-color: var(--color-bg-primary);
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+    color:var(--color-bg-tertiary);
+    padding: 50px;
+    align-self: baseline;
+  }
 /* media querries for responsive design */
-@media  (max-width: 508px){
+@media  (max-width: 500px){
+  .upload-form{
+    display: flex;
+    flex-direction: column;
+  }
+  .upload-form-area{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
     .toggle_menu{
         display: block;
         position: absolute;
@@ -460,4 +638,5 @@ tbody{
 .user-detail{
     flex-direction: column;
 }
+
 }
