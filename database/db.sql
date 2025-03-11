@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS `all_users_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `all_users_db`;  
+
+CREATE TABLE users(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    user_pwd VARCHAR(100) NOT NULL,
+    auth_token VARCHAR(10)  NULL,
+    previous_auth_token VARCHAR(10)  NULL,
+    user_role VARCHAR(100) NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

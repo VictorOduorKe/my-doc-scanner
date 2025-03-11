@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 :root{--color-primary:#001C30;
 --color-bg-primary:#001C30;
 --color-secondary:#176B87;  
@@ -11,6 +14,7 @@
 --font-size-16:16px;
 --font-size-18:18px;
 --font-size-20:20px;
+--font-size-24:24px;
 --color-btn-green:#00FF9C;
 --color-btn-bg-green:#00FF9C;
 --color-btn-red:#F93827;
@@ -20,6 +24,9 @@
 --color-red:var(--color-btn-red);
 --color-bg-red:var(--color-btn-bg-red);
 --color-yellow:#F6DC43;
+--font-rubik: 'Rubik', sans-serif;
+--font-raleway: 'Raleway', sans-serif;
+--font-baloo: 'Baloo 2', cursive;
 }
 * {
     margin: 0;
@@ -58,6 +65,7 @@ input{
 body{
     position: relative;
     width: 100%;
+    font-family: var(--font-rubik);
 }
 body::-webkit-scrollbar{
   width: 0;
@@ -88,16 +96,49 @@ section{
     text-transform: uppercase;
     font-size: var(--font-size-20);
 }
+.header .menu hr{
+  height: 100%;
+  width: 0.5px;
+}
 .header .menu ul{
     display:flex;
     list-style:none;
     padding:10px;
     gap: 20px;
+    align-items: center;
 }
 .header .menu ul li a{
     text-decoration:none;
     color:var(--color-tertiary);
     font-size: var(--font-size-20);
+    display: flex;
+    align-items: center;
+}
+.username{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-direction: column;
+    text-transform: capitalize;
+}
+.username i{
+  font-size: var(--font-size-24);
+  background: var(--color-bg-tertiary);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: all 0.3s ease-in-out;
+}
+.username i:hover{
+  box-shadow: var(--color-yellow) 0 0 5px;
+  cursor: pointer;
+  padding: 10px;
+  background:var(--color-btn-bg-green)
 }
 .search{
   border: 2px solid var(--color-btn-bg-green);
@@ -332,6 +373,9 @@ textarea{
     overflow: scroll;
     margin-top: 0;
   }
+  .card-group h4{
+    padding-top: 30px;
+  }
   .card-group::-webkit-scrollbar {
     width: 0;
   }
@@ -560,6 +604,10 @@ text-transform: lowercase;
   }
 /* media querries for responsive design */
 @media  (max-width: 500px){
+  .header .menu hr{
+    height: 1px;
+    width: 100%;
+  }
   .upload-form{
     display: flex;
     flex-direction: column;

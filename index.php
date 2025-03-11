@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/register.css">
 </head>
 <body>
     <header class="header">
         <nav class="menu">
             <ul>
-                <li><a href="index.html">Help</a></li>
+                <li><a href="">Help</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="login.html">login</a></li>
             </ul>
@@ -24,10 +25,13 @@
         <section id="form">
             <div class="container">
                 <h4>Register here</h4>
-                <form  id="register_form">
+                <form  id="register_form" action="./database/process_register.php" method="POST">
                     <div class="input-field">
                         <label for="username">Username</label>
                         <input type="text" name="username" id="username" >
+                    </div>
+                    <div class="input-field">   <label for="phone">Phone Number</label>
+                        <input type="number" name="phone" id="phone" >
                     </div>
                     <div class="input-field"><label for="email">Email</label>
                         <input type="email" name="email" id="email" ></div>
@@ -49,6 +53,6 @@
         <P>&copy; 2025</P>
       </footer>
     <script src="js/index.js"></script>
-    <script src="/js/validateRegister.js"></script>
+    <script src="./js/validateRegister.js"></script>
 </body>
 </html>

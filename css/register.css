@@ -1,0 +1,36 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root{--color-primary:#001C30;
+--color-bg-primary:#001C30;
+--color-secondary:#176B87;  
+--color-bg-secondary:#176B87;
+--color-tertiary:#DAFFFB;
+--color-bg-tertiary:#DAFFFB;
+--color-quaternary:#5E686D;
+--color-bg-quaternary:#5E686D;
+--font-size-12:12px;
+--font-size-14:14px;
+--font-size-16:16px;
+--font-size-18:18px;
+--font-size-20:20px;
+--font-size-24:24px;
+--color-btn-green:#00FF9C;
+--color-btn-bg-green:#00FF9C;
+--color-btn-red:#F93827;
+--color-btn-bg-red:#F93827;
+--color-green:var(--color-btn-green);
+--color-bg-green:var(--color-btn-bg-green);
+--color-red:var(--color-btn-red);
+--color-bg-red:var(--color-btn-bg-red);
+--color-yellow:#F6DC43;
+--font-rubik: 'Rubik', sans-serif;
+--font-raleway: 'Raleway', sans-serif;
+--font-baloo: 'Baloo 2', cursive;
+}
+
+
+
+#register_form div{
+    padding:0
+}
