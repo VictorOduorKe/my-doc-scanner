@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (!isset($_SESSION['csrf_token'])) {
+    exit(json_encode(["status" => "error", "message" => "Invalid request"]));
+}
+
+// Check if session variables exist
+$project_name = isset($_SESSION["file_name"]) ? $_SESSION["file_name"] : "No project uploaded";
+$file_path = isset($_SESSION["file_path"]) ? $_SESSION["file_path"] : "#";
+$username = isset($_SESSION["username"]) ? $_SESSION["username"] : "Guest";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +26,7 @@
             <ul>
                 <li><a href="../index.html">Help</a></li>
                 <li><a href="../contact.html">Contact</a></li>
-                <li>username</li>
+                <li><?php echo "Welcome ".htmlspecialchars($_SESSION["username"])?></li>
             </ul>
         </nav>
         <i class="fa fa-bars fa-2x toggle_menu"></i>
@@ -29,7 +40,7 @@
                         <div class="project">
                             <div class="project_details">
                                 <h4><i class="fa fa-file"></i></h4>
-                                <p>Project name</p>
+                                <p><?php echo htmlspecialchars($_SESSION["file_name"])?></p>
                             </div>
                             <hr>
                             <div class="project_details">
@@ -51,6 +62,7 @@
                 </div>
             </div>
         </section>
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     </main>
     <footer>
         <p>Developed by:.......</p>

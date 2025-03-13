@@ -1,3 +1,12 @@
+
+<?php
+session_start();    
+if(!isset($_SESSION['csrf_token'])){
+    $token= bin2hex(random_bytes(32));
+    $_SESSION['csrf_token'] = $token;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +25,7 @@
             <ul>
                 <li><a href="">Help</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">login</a></li>
+                <li><a href="login.php">login</a></li>
             </ul>
         </nav>
         <i class="fa fa-bars fa-2x toggle_menu"></i>
@@ -25,23 +34,24 @@
         <section id="form">
             <div class="container">
                 <h4>Register here</h4>
-                <form  id="register_form" action="./database/process_register.php" method="POST">
-                    <div class="input-field">
+                <form  id="register_form" action="database/process_register.php" method="POST">
+                    <div class="">
                         <label for="username">Username</label>
                         <input type="text" name="username" id="username" >
                     </div>
-                    <div class="input-field">   <label for="phone">Phone Number</label>
+                    <div class="">   <label for="phone">Phone Number</label>
                         <input type="number" name="phone" id="phone" >
                     </div>
-                    <div class="input-field"><label for="email">Email</label>
+                    <div class=""><label for="email">Email</label>
                         <input type="email" name="email" id="email" ></div>
-                    <div class="input-field">   <label for="password">Password</label>
+                    <div class="">   <label for="password">Password</label>
                         <input type="password" name="password" id="password" >
                     </div>
-                    <div class="nput-field">
+                    <div class="">
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" name="confirm_password" id="confirm-password" >
                     </div>
+                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                     <div class="message-area"></div>
                     <button type="submit">Register</button>
                 </form>
