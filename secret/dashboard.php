@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(!isset($_SESSION['csrf_token'])){
+    $token= bin2hex(random_bytes(32));
+    $_SESSION['csrf_token'] = $token;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +37,7 @@
           <li><a href="../index.html">Help</a></li>
           <li><a href="../contact.html">Contact</a></li>
           <hr>
-          <li class="username"><i class="fa fa-user "></i><p>Username</p></li>
+          <li class="username"><i class="fa fa-user "></i><p><?php echo htmlspecialchars($_SESSION["username"])?></p></li>
         </ul>
       </nav>
       <i class="fa fa-bars fa-2x toggle_menu"></i>
@@ -96,80 +104,10 @@
         </section>----->
       <section class="users-projects">
         <div class="container user-project">
-          <div class="card-group">
-            <h4>All projects</h4>
-            <div class="card">
-              <div class="user-detail">
-                <p>User name</p>
-                <p>123456</p>
-                <p>Project name</p>
-                <p>Project description</p>
-                <p>7th March 2025</p>
-              </div>
-
-              <div class="btn-group">
-                <button class="status">Pending</button>
-                <button class="view">
-                  <a href="./view-user.html"><i class="fa fa-eye fa-2x"></i></a>
-                </button>
-                <button class="delete"><i class="fa fa-trash fa-2x"></i></button>
-                <button class="btn"><a href="" class="download"><i class="fa fa-download fa-2x"></i></a></button>
-              </div>
-            </div>
-            <div class="card">
-              <div class="user-detail">
-                <p>User name</p>
-                <p>123456</p>
-                <p>Project name</p>
-                <p>Project description</p>
-                <p>7th March 2025</p>
-              </div>
-
-              <div class="btn-group">
-                <button class="status">Pending</button>
-                <button class="view">
-                  <a href="./view-user.html"><i class="fa fa-eye fa-2x"></i></a>
-                </button>
-                <button class="delete"><i class="fa fa-trash fa-2x"></i></button>
-                <button class="btn"><a href="" class="download"><i class="fa fa-download fa-2x"></i></a></button>
-              </div>
-            </div>
-            <div class="card">
-              <div class="user-detail">
-                <p>User name</p>
-                <p>123456</p>
-                <p>Project name</p>
-                <p>Project description</p>
-                <p>7th March 2025</p>
-              </div>
-
-              <div class="btn-group">
-                <button class="status">Pending</button>
-                <button class="view">
-                  <a href="./view-user.html"><i class="fa fa-eye fa-2x"></i></a>
-                </button>
-                <button class="delete"><i class="fa fa-trash fa-2x"></i></button>
-                <button class="btn"><a href="" class="download"><i class="fa fa-download fa-2x"></i></a></button>
-              </div>
-            </div>
-            <div class="card">
-                <div class="user-detail">
-                  <p>User name</p>
-                  <p>123456</p>
-                  <p>Project name</p>
-                  <p>Project description</p>
-                  <p>7th March 2025</p>
-                </div>
-  
-                <div class="btn-group">
-                  <button class="status">Pending</button>
-                  <button class="view">
-                    <a href="./view-user.html"><i class="fa fa-eye fa-2x"></i></a>
-                  </button>
-                  <button class="delete"><i class="fa fa-trash fa-2x"></i></button>
-                  <button class="btn"><a href="" class="download"><i class="fa fa-download fa-2x"></i></a></button>
-                </div>
-              </div>
+          <h4>All projects</h4>
+          <p>View all projects posted by stedents</p>
+          <div class="card-group">  
+            
               <div class="card">
                 <div class="user-detail">
                   <p>User name</p>
@@ -188,34 +126,20 @@
                   <button class="btn"><a href="" class="download"><i class="fa fa-download fa-2x"></i></a></button>
                 </div>
               </div>
-              <div class="card">
-                <div class="user-detail">
-                  <p>User name</p>
-                  <p>123456</p>
-                  <p>Project name</p>
-                  <p>Project description</p>
-                  <p>7th March 2025</p>
-                </div>
-                    
-                <div class="btn-group">
-                  <button class="status">Pending</button>
-                  <button class="view"><a href="./view-user.html"><i class="fa fa-eye fa-2x"></i></a></button>
-                  <button class="delete"><i class="fa fa-trash fa-2x"></i></button>
-                  <button class="btn"><a href="" class="download"><i class="fa fa-download fa-2x"></i></a></button>
-                </div>
-              </div>
+             
           </div>
         </div>
         <div class="loader">
            
         </div>
       </section>
-     
+     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     </main>
     <footer>
       <p>Developed by:.......</p>
       <P>&copy; 2025</P>
     </footer>
     <script src="./../js/index.js"></script>
+    <script src="./../js/validateDisplayAll.js"></script>
   </body>
 </html>

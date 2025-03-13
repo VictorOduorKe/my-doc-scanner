@@ -50,3 +50,55 @@ Array
         )
 
 )
+Array
+(
+    [file_path] => Array
+        (
+            [name] => Asignment.pdf
+            [full_path] => Asignment.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\phpB6AC.tmp
+            [error] => 0
+            [size] => 460759
+        )
+
+)
+Array
+(
+    [file_path] => Array
+        (
+            [name] => Asignment.pdf
+            [full_path] => Asignment.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php195F.tmp
+            [error] => 0
+            [size] => 460759
+        )
+
+)
+Array
+(
+    [file_path] => Array
+        (
+            [name] => Asignment.pdf
+            [full_path] => Asignment.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php536B.tmp
+            [error] => 0
+            [size] => 460759
+        )
+
+)
+Array
+(
+    [file_path] => Array
+        (
+            [name] => Asignment.pdf
+            [full_path] => Asignment.pdf
+            [type] => application/pdf
+            [tmp_name] => C:\xampp\tmp\php5A1E.tmp
+            [error] => 0
+            [size] => 460759
+        )
+
+)

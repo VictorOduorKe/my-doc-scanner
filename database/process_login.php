@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         include_once "db_config.php";
 
         // Fetch only user ID & password hash
-        $stmt = $pdo->prepare("SELECT id, user_pwd,username  FROM users WHERE username = :username");
+        $stmt = $pdo->prepare("SELECT id, user_pwd,username,user_role FROM users WHERE username = :username");
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -39,7 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username']=$user["username"];
-            exit(json_encode(["status" => "success", "message" => "Login successful", "redirect" => "./uploadProject/upload.php"]));
+            if($user["user_role"]=="admin"){
+                exit(json_encode(["status" => "success", "message" => "Login successful", "redirect" => "./secret/dashboard.php"]));
+            }else{
+                exit(json_encode(["status" => "success", "message" => "Login successful", "redirect" => "./uploadProject/upload.php"]));
+            }
         }
     } catch (PDOException $e) {
         error_log("Database error: " . $e->getMessage(), 3, "errors.log");
