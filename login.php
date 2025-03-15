@@ -45,7 +45,7 @@ if (!isset($_SESSION['csrf_token'])) {
                     <button type="submit" class="login_btn">Login</button>
                     <div class="other-field">
                         <a href="reset-password.html">Reset Password</a>
-                        <a href="register.html">Register here</a>
+                        <a href="/">Register here</a>
                     </div>
                 </form>
             </div>

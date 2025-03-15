@@ -1,41 +1,60 @@
-const uploadForm = document.getElementById("form-upload");
-
-uploadForm.addEventListener("submit", (e) => {  
+document.addEventListener("DOMContentLoaded", function (e) {
     e.preventDefault();
-    
-    const messageArea = document.querySelector(".message-area");
-    const uploadBtn = uploadForm.querySelector("button[type='submit']");
+    const uploadForm = document.getElementById("form-upload");
+      const messageArea = document.querySelector(".message-area");
+    if (uploadForm) {
+        uploadForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-    const formData = new FormData(uploadForm); // Correct way to send FormData
+            const fileInput = document.querySelector("input[name='file_path']");
+            if (!fileInput.files.length) {
+                
+                messageArea.innerHTML = "Please select a file to upload.";
+                messageArea.classList.add("message-error");
+                setTimeout(() => {
+                    messageArea.innerHTML = "";
+                    messageArea.classList.remove("message-error");
+                }, 3000);
+                return;
+            }
 
-    uploadBtn.innerHTML = "Uploading...";
-    uploadBtn.disabled = true;
+            const formData = new FormData(uploadForm); // Automatically appends all form fields
 
-    fetch("./../database/process_upload.php", {
-        method: "POST",
-        body: formData,
-    })
-    .then(response => response.text()) // Log response as text to debug
-    .then(text => {
-        console.log("Server Response:", text); // Check raw response in console
-        return JSON.parse(text); // Convert to JSON
-    })
-    .then(data => {
-        if (data.status === "success") {
-            messageArea.innerHTML = data.message;
-            messageArea.classList.add("message-success");
-            uploadForm.reset();
-            setTimeout(() => {
-                window.location.href = data.redirect;
-            }, 3000);
-        } else {
-            throw new Error(data.message);
-        }
-    })
-    .catch((error) => {
-        messageArea.innerHTML = "An error occurred: " + error.message;
-        messageArea.classList.add("message-error");
-        uploadBtn.innerHTML = "Upload";
-        uploadBtn.disabled = false;
-    });
+            fetch("../database/process_upload.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text()) // Get raw response for debugging
+            .then(text => {
+
+                try {
+                    const data = JSON.parse(text); // Parse JSON response
+                    if (data.status === "success") {
+                        messageArea.innerHTML = data.message;
+                        messageArea.classList.add("message-success");
+                        uploadForm.reset();
+                        const button=e.target.closest("button");
+
+                        button.innerHTML = "Processing...";
+                        messageArea.disabled = true;
+                        setTimeout(() => {
+                            button.innerHTML = "Upload";
+                            messageArea.classList.remove("message-success");
+                            window.location.href = data.redirect;
+                        }, 3000);
+                    } else {
+                       messageArea.innerHTML = data.message;
+                        messageArea.classList.add("message-error");
+                        setTimeout(() => {
+                            messageArea.innerHTML = "";
+                            messageArea.classList.remove("message-error");
+                        }, 3000);
+                    }
+                } catch (error) {
+                    console.error("Invalid JSON response:", text);
+                }
+            })
+            .catch(error => console.error("Fetch Error:", error));
+        });
+    }
 });

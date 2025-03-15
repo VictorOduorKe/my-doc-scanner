@@ -32,7 +32,7 @@ $description = $_SESSION["created_at"] ?? "No description provided";
             <ul>
                 <li><a href="../index.html">Help</a></li>
                 <li><a href="../contact.html">Contact</a></li>
-                <li><?php echo "Welcome, " . htmlspecialchars($username); ?></li>
+                <li class="username"><i class="fa fa-user "></i><p><?php echo htmlspecialchars($_SESSION["username"])?></p></li>
             </ul>
         </nav>
         <i class="fa fa-bars fa-2x toggle_menu"></i>

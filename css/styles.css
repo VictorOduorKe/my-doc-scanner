@@ -85,7 +85,7 @@ section{
   width: 100%;
   justify-content:space-between;
   position: fixed;
-  padding: 30px;
+  padding: 20px;
 }
 .toggle_menu{
     display: none;
@@ -106,6 +106,18 @@ section{
     padding:10px;
     gap: 20px;
     align-items: center;
+    justify-self: right;
+    justify-content: flex-end;
+    width: 100%;
+}
+nav{
+  display: flex;
+  align-self: flex-end;
+  justify-content: right;
+  width: 100%;
+  justify-items: right;
+  padding:0;
+  margin: 0;
 }
 .header .menu ul li a{
     text-decoration:none;
@@ -117,9 +129,10 @@ section{
 .username{
     display: flex;
     gap: 5px;
-    align-items: center;
+    align-items: right;
     flex-direction: column;
     text-transform: capitalize;
+    justify-content: flex-end;
 }
 .username i{
   font-size: var(--font-size-24);
@@ -417,6 +430,30 @@ textarea{
     align-items: center;
     justify-content: center;
   }
+  .logout{
+    box-shadow: var(--color-btn-red) 0 0 5px;
+    color: var(--color-btn-red);
+    background: var(--color-bg-primary);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .username{
+    display: flex;
+    flex: 1;
+    align-items: right;
+    justify-content: end;
+    align-items: flex-end;
+    text-align: center;
+  }
+  #logout{
+    display: none;
+    position: absolute;
+    top:110px;
+  }
+  .username:hover>#logout{
+    display: block;
+  }
   .spinner{
     width: 20px;
     height: 20px;
@@ -617,6 +654,26 @@ text-transform: lowercase;
     display: flex;
     flex-direction: column;
   }
+  #logout{
+    display: block;
+    position: relative;
+    top:0
+  }
+  .username{
+    gap:20px;
+  }
+  .username button{
+    background: none;
+    box-shadow:none;
+  }
+  .username p{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap:10px;
+    align-items: center;
+    padding:5px
+  }
   .upload-form-area{
     display: flex;
     gap: 20px;
@@ -626,9 +683,11 @@ text-transform: lowercase;
         display: block;
         position: absolute;
         right: 20px;
-        top: 20px;
+        top: 0px;
         z-index: 1;
         cursor: pointer;
+        padding:10px;
+        
     }
     .menu{
         display: flex;

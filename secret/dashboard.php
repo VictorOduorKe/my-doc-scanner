@@ -36,6 +36,10 @@ if(!isset($_SESSION['csrf_token'])){
           <li><a href="../index.html"><i class=" fa fa-user-group"></i><p>Students</p></a></li>
           <li><a href="../index.html">Help</a></li>
           <li><a href="../contact.html">Contact</a></li>
+          <li><form action="./../login.php">
+            <button type="submit" class="logout">Logout</button>
+          </form>
+        </li>
           <hr>
           <li class="username"><i class="fa fa-user "></i><p><?php echo htmlspecialchars($_SESSION["username"])?></p></li>
         </ul>
